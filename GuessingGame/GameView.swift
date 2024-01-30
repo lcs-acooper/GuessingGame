@@ -23,6 +23,8 @@ struct GameView: View {
     // The list of numbers the user has guessed so far
     @State var guessesMade: [Int] = []
     
+    
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -98,6 +100,17 @@ struct GameView: View {
         // When should then guess lower?
         // FILL IN THIS CODE
         
+        if selectedNumber < target {
+                feedback = "Try guessing higher!"
+            } else if selectedNumber > target {
+                feedback = "Try guessing lower!"
+            } else {
+                feedback = "Congratulations! You guessed it!"
+                  
+            }
+      
+        
+        
         // Save the user's guesses
         guessesMade.append(selectedNumber)
         
@@ -114,6 +127,8 @@ struct GameView: View {
         
         // Reset feedback
         feedback = ""
+        
+            
         
         // Remove guesses made
         guessesMade.removeAll()
